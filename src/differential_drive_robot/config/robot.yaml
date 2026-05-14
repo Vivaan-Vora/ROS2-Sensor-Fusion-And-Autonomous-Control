@@ -1,0 +1,43 @@
+imu_publisher:
+  ros__parameters:
+    topic_name: /imu_data
+    frame_id: imu_link
+    publish_rate_hz: 50.0
+    angular_velocity_z: 0.25
+    linear_acceleration_x: 0.0
+    orientation_noise_stddev: 0.002
+    angular_velocity_noise_stddev: 0.001
+
+odom_publisher:
+  ros__parameters:
+    topic_name: /odom_data
+    frame_id: odom
+    child_frame_id: base_link
+    publish_rate_hz: 20.0
+    linear_velocity: 0.4
+    angular_velocity: 0.25
+    position_noise_stddev: 0.01
+    theta_noise_stddev: 0.002
+
+sensor_fusion_node:
+  ros__parameters:
+    imu_topic: /imu_data
+    odom_topic: /odom_data
+    fused_pose_topic: /fused_pose
+    frame_id: odom
+    imu_orientation_weight: 0.98
+    publish_rate_hz: 30.0
+
+controller_node:
+  ros__parameters:
+    fused_pose_topic: /fused_pose
+    goal_pose_topic: /goal_pose
+    cmd_vel_topic: /cmd_vel
+    control_rate_hz: 20.0
+    k_linear: 0.8
+    k_angular: 1.8
+    k_heading: 1.2
+    max_linear_velocity: 0.6
+    max_angular_velocity: 1.5
+    goal_tolerance: 0.08
+    heading_tolerance: 0.05
