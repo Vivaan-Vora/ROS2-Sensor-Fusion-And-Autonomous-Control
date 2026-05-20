@@ -21,3 +21,54 @@ The objective was to build a complete, engineering-grade robotics pipeline rathe
 - A YAML configuration file externalizing all tunable robot and controller parameters
 
 ---
+
+## Tools And Libraries
+
+- **ROS2 Humble** — primary middleware for node communication, topic management, and launch infrastructure
+- **Gazebo 11** — physics-based simulation environment for robot modeling and sensor emulation
+- **C++17** — implementation language for the sensor fusion and controller nodes
+- **Python 3.10+** — implementation language for the simulated IMU and odometry publishers
+- **colcon** — build system for compiling and installing the ROS2 package
+- **rosdep** — dependency resolution for ROS and system-level packages
+
+All robot parameters and controller gains are managed through a YAML-driven configuration system, enabling parameter iteration without requiring any modification to the underlying source code.
+
+---
+
+## Repository Structure
+
+```
+ROS2-Sensor-Fusion-And-Autonomous-Control/
+├── src/
+│   └── differential_drive_robot/
+│       ├── config/
+│       │   └── robot.yaml              # Tunable robot and controller parameters
+│       ├── launch/
+│       │   └── simulation.launch.py    # Full stack launch orchestration
+│       ├── msg/
+│       │   └── FusedPose.msg           # Custom fused pose message definition
+│       └── src/
+│           ├── sensor_fusion_node.cpp  # Complementary filter fusion node
+│           ├── controller_node.cpp     # Proportional goal-seeking controller
+│           ├── imu_publisher.py        # Simulated IMU data publisher
+│           └── odom_publisher.py       # Simulated odometry data publisher
+├── gazebo/
+│   ├── worlds/
+│   │   └── robot_world.sdf             # Simulation world definition
+│   └── models/
+│       └── diff_drive_robot/
+│           ├── model.sdf               # Robot model geometry and physics
+│           └── model.config
+├── docs/
+│   └── images/
+│       ├── gazebo-simulation-preview.png
+│       ├── ros2-topic-graph-preview.png
+│       ├── fused-pose-terminal-preview.png
+│       ├── control-loop-architecture.png
+│       ├── complementary-filter-timeline.png
+│       ├── robot-model-overview.png
+│       └── config-tuning-preview.png
+└── README.md
+```
+
+---
