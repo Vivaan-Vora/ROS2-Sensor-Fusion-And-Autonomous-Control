@@ -72,3 +72,16 @@ ROS2-Sensor-Fusion-And-Autonomous-Control/
 ```
 
 ---
+
+## How The Control Loop Works
+
+At each simulation time step, the following operations are performed in sequence:
+
+1. The IMU publisher and odometry publisher emit sensor readings on `/imu_data` and `/odom_data`
+2. The sensor fusion node applies a complementary filter to combine high-frequency IMU orientation updates with lower-frequency odometry position updates, producing a single `/fused_pose` output
+3. The controller node reads `/fused_pose` and `/goal_pose`, computes heading error and Euclidean distance to goal, and applies proportional gains to generate a `/cmd_vel` command
+4. Gazebo receives the velocity command, advances the simulation, and the cycle repeats
+
+This architecture keeps the full perception-to-actuation pipeline modular, observable via standard ROS2 topic tooling, and reproducible across simulation runs.
+
+---
