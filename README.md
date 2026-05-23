@@ -85,3 +85,35 @@ At each simulation time step, the following operations are performed in sequence
 This architecture keeps the full perception-to-actuation pipeline modular, observable via standard ROS2 topic tooling, and reproducible across simulation runs.
 
 ---
+
+## Visual Results
+
+### Gazebo Simulation Output
+
+![Gazebo Simulation](docs/images/gazebo-simulation-preview.png)
+
+### ROS2 Topic Graph
+
+![ROS2 Topic Graph](docs/images/ros2-topic-graph-preview.png)
+
+### Fused Pose And Controller Terminal Output
+
+![Fused Pose Output](docs/images/fused-pose-terminal-preview.png)
+
+### Closed-Loop Control Architecture
+
+![Closed-loop control architecture](docs/images/control-loop-architecture.png)
+
+### Complementary Filter Timeline
+
+![Complementary filter timeline](docs/images/complementary-filter-timeline.png)
+
+### Differential Drive Robot Model Overview
+
+![Differential drive robot model overview](docs/images/robot-model-overview.png)
+
+### YAML Configuration And Tuning Preview
+
+![Configuration tuning preview](docs/images/config-tuning-preview.png)
+
+---
