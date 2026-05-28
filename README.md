@@ -117,3 +117,14 @@ This architecture keeps the full perception-to-actuation pipeline modular, obser
 ![Configuration tuning preview](docs/images/config-tuning-preview.png)
 
 ---
+
+## Node Summary
+
+| Node | Language | Subscribes | Publishes |
+|---|---|---|---|
+| `imu_publisher` | Python | — | `/imu_data` |
+| `odom_publisher` | Python | — | `/odom_data` |
+| `sensor_fusion_node` | C++ | `/imu_data`, `/odom_data` | `/fused_pose` |
+| `controller_node` | C++ | `/fused_pose`, `/goal_pose` | `/cmd_vel` |
+
+---
