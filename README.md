@@ -128,3 +128,29 @@ This architecture keeps the full perception-to-actuation pipeline modular, obser
 | `controller_node` | C++ | `/fused_pose`, `/goal_pose` | `/cmd_vel` |
 
 ---
+
+## Sensor Fusion Implementation Details
+
+The complementary filter was implemented entirely from first principles and incorporates several practical design decisions:
+
+- **IMU Orientation Tracking** — high-frequency IMU orientation updates track heading with low latency between odometry updates
+- **Odometry Correction** — lower-frequency wheel odometry supplies position estimates and periodically corrects heading through a weighted blend
+- **Complementary Weighting** — a tunable alpha parameter controls the trust split between sensor streams, configurable in `robot.yaml` without touching node source
+- **Confidence Score** — the custom `FusedPose.msg` includes a per-message confidence value derived from sensor availability and freshness, available to downstream consumers
+- **Decoupled Update Rates** — the fusion node handles asynchronous arrival of IMU and odometry messages without requiring synchronized timestamps
+
+---
+
+## Custom Message Definition
+
+`FusedPose.msg` combines position, orientation, velocity, and a sensor confidence score from both input streams into a single message type consumed by the controller:
+
+```
+std_msgs/Header header
+geometry_msgs/Pose2D pose
+float64 linear_velocity
+float64 angular_velocity
+float64 confidence
+```
+
+---
