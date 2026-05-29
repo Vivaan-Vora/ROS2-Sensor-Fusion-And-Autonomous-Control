@@ -1,5 +1,8 @@
 # ROS2 Sensor Fusion And Autonomous Control
 
+
+**Repo:** `ros2-sensor-fusion-control`
+
 ---
 
 ## Project Overview
@@ -38,7 +41,7 @@ All robot parameters and controller gains are managed through a YAML-driven conf
 ## Repository Structure
 
 ```
-ROS2-Sensor-Fusion-And-Autonomous-Control/
+ros2-sensor-fusion-control/
 ├── src/
 │   └── differential_drive_robot/
 │       ├── config/
@@ -154,3 +157,7 @@ float64 confidence
 ```
 
 ---
+
+## Summary
+
+This project constitutes a complete, practical demonstration of applied robotics software engineering — spanning ROS2 node architecture, complementary filter sensor fusion, proportional goal-seeking control, Gazebo simulation integration, custom message definitions, and configuration-driven parameter management. The system is designed to be readable, modular, and extensible for future localization and navigation experimentation.
