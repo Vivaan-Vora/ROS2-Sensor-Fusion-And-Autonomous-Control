@@ -1,3 +1,4 @@
+# IMU publisher configuration
 imu_publisher:
   ros__parameters:
     topic_name: /imu_data
@@ -8,6 +9,7 @@ imu_publisher:
     orientation_noise_stddev: 0.002
     angular_velocity_noise_stddev: 0.001
 
+# Wheel odometry publisher configuration
 odom_publisher:
   ros__parameters:
     topic_name: /odom_data
@@ -19,6 +21,7 @@ odom_publisher:
     position_noise_stddev: 0.01
     theta_noise_stddev: 0.002
 
+# Sensor fusion node configuration
 sensor_fusion_node:
   ros__parameters:
     imu_topic: /imu_data
@@ -28,6 +31,7 @@ sensor_fusion_node:
     imu_orientation_weight: 0.98
     publish_rate_hz: 30.0
 
+# Proportional controller configuration
 controller_node:
   ros__parameters:
     fused_pose_topic: /fused_pose
