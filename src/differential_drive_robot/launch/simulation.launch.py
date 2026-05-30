@@ -1,4 +1,5 @@
-"""Launch Gazebo and the complete differential-drive sensor fusion stack."""
+"""Launch Gazebo and the full sensor fusion control stack."""
+
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, SetEnvironmentVariable
