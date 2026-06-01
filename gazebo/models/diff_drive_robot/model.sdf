@@ -274,6 +274,7 @@
       <max_wheel_acceleration>1.0</max_wheel_acceleration>
       <command_topic>/cmd_vel</command_topic>
       <odometry_topic>/gazebo/odom_data</odometry_topic>
+      <!-- wheel odometry output -->
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
       <publish_wheel_tf>true</publish_wheel_tf>
