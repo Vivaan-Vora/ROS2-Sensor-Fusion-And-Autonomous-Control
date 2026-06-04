@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publish simulated wheel odometry for the differential drive robot."""
+"""Publish simulated wheel odometry for the differential drive robot stack."""
 
 import math
 import random
