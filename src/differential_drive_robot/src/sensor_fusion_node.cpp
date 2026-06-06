@@ -116,7 +116,7 @@ private:
     msg.pose.theta = normalize_angle(fused_theta_);
     msg.linear_velocity = latest_linear_velocity_;
     msg.angular_velocity = latest_angular_velocity_;
-    msg.confidence = compute_confidence();
+    msg.confidence = compute_confidence();  // derived from sensor freshness
     fused_pose_pub_->publish(msg);
   }
 

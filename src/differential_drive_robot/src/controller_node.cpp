@@ -105,7 +105,7 @@ private:
       cmd.angular.z = std::clamp(
         k_heading_ * final_heading_error, -max_angular_velocity_, max_angular_velocity_);
     } else if (!goal_reached_logged_) {
-      RCLCPP_INFO(get_logger(), "Goal reached");
+      RCLCPP_INFO(get_logger(), "Goal reached within tolerance");
       goal_reached_logged_ = true;
     }
 
