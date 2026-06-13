@@ -1,8 +1,5 @@
 # ROS2 Sensor Fusion And Autonomous Control
 
-
-**Repo:** `ros2-sensor-fusion-control`
-
 ---
 
 ## Project Overview
@@ -41,7 +38,7 @@ All robot parameters and controller gains are managed through a YAML-driven conf
 ## Repository Structure
 
 ```
-ros2-sensor-fusion-control/
+ROS2-Sensor-Fusion-And-Autonomous-Control/
 ├── src/
 │   └── differential_drive_robot/
 │       ├── config/
