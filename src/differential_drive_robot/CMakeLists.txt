@@ -32,6 +32,13 @@ ament_target_dependencies(sensor_fusion_node
 )
 target_link_libraries(sensor_fusion_node "${cpp_typesupport_target}")
 
+add_executable(controller_node src/controller_node.cpp)
+ament_target_dependencies(controller_node
+  geometry_msgs
+  rclcpp
+)
+target_link_libraries(controller_node "${cpp_typesupport_target}")
+
 install(PROGRAMS
   src/imu_publisher.py
   src/odom_publisher.py
@@ -39,6 +46,7 @@ install(PROGRAMS
 )
 
 install(TARGETS
+  controller_node
   sensor_fusion_node
   DESTINATION lib/${PROJECT_NAME}
 )
