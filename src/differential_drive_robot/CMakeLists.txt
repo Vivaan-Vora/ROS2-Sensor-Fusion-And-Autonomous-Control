@@ -51,5 +51,16 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+install(DIRECTORY
+  config
+  launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install(DIRECTORY
+  ${CMAKE_CURRENT_SOURCE_DIR}/../../gazebo/
+  DESTINATION share/${PROJECT_NAME}/gazebo
+)
+
 ament_export_dependencies(rosidl_default_runtime)
 ament_package()
